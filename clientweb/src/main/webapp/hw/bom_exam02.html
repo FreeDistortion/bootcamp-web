@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function idDuplicatedCheck() {
+		let idStr = document.getElementById("id");
+		let resultStr=document.getElementById("result");
+		console.log(idStr.value.length);
+		if (idStr.value == "java") {
+			resultStr.innerHTML= "이미 사용중인 아이디입니다.";
+		}else if(idStr.value.length<4){
+			resultStr.innerHTML= "4글자 이상의 글자를 입력하세요.";
+		}else{
+			resultStr.innerHTML=null;
+		}
+		
+	}
+</script>
+</head>
+<body>
+		<h1>티몬 회원가입</h1>
+		<h2>필수항목</h2>
+	
+	<form>
+		<span>아이디:</span><input type="text" id="id" onkeyup="idDuplicatedCheck()">
+	</form>
+		<div id="result" style="color: red; font-size: bold;"></div>
+</body>
+</html>

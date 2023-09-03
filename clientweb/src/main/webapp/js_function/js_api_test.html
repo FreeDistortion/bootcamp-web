@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const API_KEY="smVUspJdbxLADZAauF6sIMAhdGgYQSefbcN0kVLL9r6RsmWmxyS7MEaUdTxeZLGwVy1gWRxZSbWY1lOwV%2BrEEg%3D%3D";
+			/* let test="test~~##";
+			alert(`hi there^^${test}`); */
+			async function connect(){
+				let url=`https://apis.data.go.kr/6510000/publicToiletService/getPublicToiletInfoList?serviceKey=${API_KEY}`;
+				let response = await fetch(url);
+				let data=response.json();
+				console.log("response data",data);
+			}
+			connect();
+		
+		</script>
+	</body>
+</html>

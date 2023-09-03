@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var myfunc = function() {
+			return "화살표 함수 연습(일반 표현식)";
+		}
+		var result1 = myfunc();
+		console.log(result1);
+
+		//화살표함수
+		var myfunc2 = () => {
+			return "화살표 함수 연습(화살표 함수)";
+		}
+		console.log(myfunc2());
+		
+		//return이 한 줄인 경우
+		var myfunc3 = () => "화살표 함수 연습(화살표 함수 at return 한 줄)";
+		console.log(myfunc3());
+		
+		//매개변수가 있는 함수
+		var myfunc4 = (name) => "화살표 함수 연습(화살표 함수 at return 한 줄)"+name;
+		console.log(myfunc4("tempParameter"));
+		
+		//매개변수가 여러 개 있는 함수
+		var myfunc5 = (name,age) => "화살표 함수 연습(화살표 함수 at return 한 줄)"+name+age;
+		console.log(myfunc5("tempParameter", 30));
+		
+		var myfunc6 = (name,age) => {
+			document.write("화살표 함수 연습(화살표 함수 at return 한 줄)"+name+age);
+		return "종료";
+		}
+		console.log(myfunc6("tempParameter", 30));
+		
+	</script>
+</body>
+</html>

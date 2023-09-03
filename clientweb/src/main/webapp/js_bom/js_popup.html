@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			body{
+				background-color: skyblue;
+			}
+		
+		</style>
+		<script type="text/javascript">
+		function showdata(zip,addr){
+			alert("A function executed when address selected: "+zip+", "+addr);
+			opener.document.myform.zipcode.value=zip;
+			opener.document.myform.address.value=addr;
+			window.close();
+		}
+		
+		function getopenervalue(){
+			//pop-up창의 textbox= opener의 textbox			
+			//window.document.getElementById("myid").value
+			document.getElementById("myid").value = opener.document.myform.id.value;
+		}
+		</script>
+	</head>
+	
+	
+	<body onload="getopenervalue()">
+		<form>
+			<input type="text" id="myid">
+			<input type="text" id="addr">
+			<input type="submit" value="search">
+			
+		</form>
+		<a href="javascript:showdata('111111','Guro, Seoul')"	>Guro-dong</a>
+		<a href="javascript:showdata('222222','Sinrim, Seoul')"	>Sinrim,-dong</a>
+		<a href="javascript:showdata('333333','Seocho, Seoul')"	>Seocho,-dong</a>
+		<a href="javascript:showdata('444444','Kyungam, Seoul')">Kyungam,-dong</a>
+		<a href="javascript:showdata('555555','Sangam, Seoul')"	>Sangam,-dong</a>
+		
+	</body>
+</html>

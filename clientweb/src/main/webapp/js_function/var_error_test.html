@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>var_error_test</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function test() {
+			//n variable이 선언되지 않은 상태에서 사용해도 오류 발생이 안 됨.
+			console.log("n=" + n);
+			var n = 10;
+			console.log("n=" + n);
+		}
+		test();
+		console.log("-------------------------------");
+		
+		//local variable이지만 block 밖에서 사용 가능
+		for (var i = 0; i < 10; i++) {
+			console.log("i="+i);
+		}
+		console.log("block외부 ")
+		console.log("i="+i);
+		console.log("-------------------------------");
+		
+		var s=100;
+		console.log("s="+s);
+		s=1000;
+		console.log("s="+s);
+		s="test";//재할당
+		console.log("s="+s);
+		
+		//var keyword를 쓰면 동일 이름의 variable을 선언해서 사용할 수 있다.
+		var s="js";//재선언
+		console.log("s="+s);
+	</script>
+</body>
+</html>

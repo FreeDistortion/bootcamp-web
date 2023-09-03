@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		function discount(){
+			let price=document.getElementById("textbox");
+			document.getElementById("result").innerHTML=(12900*0.9*price.value);
+			
+		}
+		</script>
+	</head>
+	<body>
+	<form>
+		<span>수량:</span>
+		<input type="text" id="textbox" onkeyup="discount()">
+		<span id="result"></span>
+		
+		</form>		
+	</body>
+</html>

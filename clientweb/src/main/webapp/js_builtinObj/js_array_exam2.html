@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js_array_exam2</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let myarr=[5,7,9,10,5];
+			
+			//1. myarr의 각 요소의 값에 5배를 한 결과로 새 배열 생성.
+			//2. 1.에서 생성한 결과 출력.
+			//		반드시 map과 foreach, =>로 작업.
+			//3. myarr의 각 요소에 대한 홀짝 여부 판단 후 짝수의 경우 true 로 평가해서 새 배열 생성 및 출력.
+			
+			
+			//1.
+			let newarr=myarr.map(
+			(item)=>{
+				return item*5;
+			}		
+			);
+			
+			//2.
+			function print(val){
+				console.log(val);
+			}
+			newarr.forEach(print);
+			
+			let isoddarr=myarr.map(
+					function(item){
+						if(item%2==0){return true;}
+					}
+			);
+			console.log(isoddarr);
+		</script>
+	</body>
+</html>

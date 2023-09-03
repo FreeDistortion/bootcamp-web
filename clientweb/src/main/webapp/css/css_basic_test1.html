@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS사용방법</title>
+		<!-- 3. CSS를 외부 문서로 정의하고 연결해서 사용 -->
+		<link rel="stylesheet" type="text/css" href="/clientweb/common/css/mystyle.css">
+		
+		<!-- 1.	head tag에 정의하고 사용(embedded방식) -->
+		<style type="text/css">
+			/* css에서 사용할 수 있는 주석문 */
+			p{
+				color: rgb(125,64,231) !important;
+				font-size: 12pt;
+				background-color: yellow;
+			}
+			h1{
+				color: lime;
+				font-size: 16pt;
+			}
+			.test{
+			color: black;
+			font-size: 20px;
+			}
+			#idtest{
+			color: aqua;
+			}
+			</style>
+	</head>
+	<body>
+		<!-- 2. inline으로 tag에서 style 속성 정의 및 사용(inline방식) -->
+		<p style="color: orange;font-size: 40pt">CSS연습중</p>
+		<h1>CSS연습중</h1>
+		<p>CSS연습중</p>
+		<h1>CSS연습중</h1>
+		<p>CSS연습중</p>
+		<h1>CSS연습중</h1>
+		<p class="test">CSS연습중</p>
+		<h2 class="test" id="idtest">CSS연습중</h2>
+		
+	</body>
+</html>

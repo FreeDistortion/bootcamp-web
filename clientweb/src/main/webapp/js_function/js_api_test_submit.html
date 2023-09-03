@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const API_KEY="smVUspJdbxLADZAauF6sIMAhdGgYQSefbcN0kVLL9r6RsmWmxyS7MEaUdTxeZLGwVy1gWRxZSbWY1lOwV%2BrEEg%3D%3D";
+			async function connect(){
+				let url=`https://apis.data.go.kr/B551014/SRVC_API_SFMS_FACI/TODZ_API_SFMS_FACI?serviceKey=${API_KEY}&pageNo=1&numOfRows=100&resultType=json`;
+				let response = await fetch(url);
+				let data=response.json();
+				console.log("response data",data);
+			}
+			connect();
+		
+		</script>
+	</body>
+</html>

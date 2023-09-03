@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function test1() {
+		//BOM접근	방법
+		//var mytext=window.document.myform.id.value;
+		var mytext=myform.id.value;
+		alert(mytext);
+	}
+	function test2() {
+		//DOM - id
+		let mydiv=document.getElementById("mydiv");
+		mydiv.setAttribute("style","background-color: yellow");
+	}
+	function test3() {
+		//DOM - launch3 누르면 mydiv객체의 style이 변경되도록 작업
+		var myobj=document.querySelector("#mydiv");
+		myobj.style.color="red";
+	}
+</script>
+<style type="text/css">
+	temp{
+		background-color: yellow;
+	}
+	
+</style>
+</head>
+<body>
+	<h1 id="myh1">BOM</h1>
+	<div id="mydiv">BOM,Browser Object Model</div>
+	<form name="myform">
+		<input type="text" name="id" >
+		<input type="button" value="launch1" onclick="test1()">
+		<input type="button" value="launch2" onclick="test2()">
+		<input type="button" value="launch3" onclick="test3()">
+
+	</form>
+</body>
+</html>

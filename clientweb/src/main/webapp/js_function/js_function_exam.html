@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function printGugu() {
+		dan = parseInt(prompt("Enter dan"));
+		i = parseInt(prompt("Enter i"));
+
+		document.write("<table border='1'>");
+		for (i = 1; i <= 9; i++) {
+			document.write("<tr>");
+			document.write("<td><h3>" + dan + "*" + i + "=" + (dan * i)
+					+ "</h3></td>");
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	}
+
+	function getSum(start, end) {
+		sum = 0;
+		for (i = start; i <= end; i++) {
+			sum += i;
+		}
+		return sum;
+	}
+
+	function calc(num1, num2, opr) {
+		switch (opr) {
+		case "+":
+			return (start + end);
+			break;
+		case "-":
+			return (start - end);
+			break;
+		case "*":
+			return (start * end);
+			break;
+		case "/":
+			return (start / end);
+			break;
+		}
+
+	}
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		printGugu();
+
+		start = parseInt(prompt("Enter start-number"));
+		end = parseInt(prompt("Enter end-number"));
+		document.write("<p>"+getSum(start, end)+"</p>");
+
+		num1 = parseInt(prompt("Enter start-number"));
+		num2 = parseInt(prompt("Enter end-number"));
+		opr = prompt("Enter operator");
+		document.write(calc(num1, num2, opr));
+	</script>
+</body>
+</html>

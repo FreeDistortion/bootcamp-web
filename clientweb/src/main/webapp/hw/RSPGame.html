@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+		//테스트예제
+		//컴퓨터와 가위 바위 보하는 게임 작성
+		//이긴경우, 진, 비긴경우 각각 메시지를 출력하거나..이미지
+		
+		console.log(Math.random()*3);
+		let rand=Math.random()*3;
+		let myVal;
+		if(rand<1){
+			rand=1; // rock
+		}else if(rand<2){
+			rand=0; // sissors
+			
+		}else{
+			rand=-1; // paper
+		}
+		
+		function RSP(rspVal){
+			myVal=rspVal.getAttribute("id");
+			try{
+			if(myVal=="rock"){
+				myVal=1;
+			}else if(myVal=="sissors"){
+				myVal=0;
+			}else if(myVal=="paper"){
+				myVal=-1;
+			}}
+			catch{
+				console.error();
+			}
+			
+			
+		
+			
+			let resultOfRSPG=myVal-rand;
+			switch(resultOfRSPG){
+				case 0:
+					document.getElementById("resultOfRSPG").innerHTML="Draw";break;
+				case 1, -2:
+					document.getElementById("resultOfRSPG").innerHTML="Win";break;
+				case 2, -1:
+					document.getElementById("resultOfRSPG").innerHTML="Defeat";break;
+			}
+			
+			switch(rand){
+			case 1:
+				document.getElementById("computerVal").innerHTML="computer: rock"; break;
+			case 0:
+				document.getElementById("computerVal").innerHTML="computer: sissors"; break;
+			case -1:
+				document.getElementById("computerVal").innerHTML="computer: paper"; break;
+			}
+			
+		}
+		
+			
+			
+	</script>
+</head>
+<body>
+	<form id="myform">
+		<input type="button" value="Rock" id="rock" onclick="RSP(this)">
+		<input type="button" value="Sissors" id="sissors" onclick="RSP(this)">
+		<input type="button" value="Paper" id="paper" onclick="RSP(this)">
+		<div id="computerVal"></div>
+		<div id="resultOfRSPG"></div>
+	</form>
+
+
+</body>
+</html>

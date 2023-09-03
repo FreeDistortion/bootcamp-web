@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function showArr(myarr){
+				for (let i = 0; i < myarr.length; i++) {
+					document.write("<h3>배열의 "+i+"번 요소: "+myarr[i]+"</h3>");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//배열에서 사용할 수 있는 method(function)
+		let myarr1=[1,2,3,4,5];
+		let myarr2=["jb","ja","js0","js1","js2"]
+		document.write("<hr/>");
+		
+		showArr(myarr1);
+		showArr(myarr2);
+		document.write("<hr/>");
+		
+		//join method는 parameter로 전달된 문자열과 배열의 요소가 연걸되어 하나의 문자열로 return
+		let data1= myarr2.join(",");
+		document.write(data1+"<br/>");
+		document.write(typeof data1+"<br/>");
+		document.write("<hr/>")
+		
+		//문자열을 구분해서 배열로 만들기
+		let data2=data1.split(",");
+		showArr(data2);
+		document.write("<hr/>")
+		
+		//배열의 요소를 거꾸로 출력하기
+		var data3=myarr2.reverse();
+		showArr(data3);
+		
+		document.write("<hr/>")
+
+		//배열 정렬
+		let data4=myarr2.sort();
+		showArr(data4);
+		
+		//배열 요소 넣기 - 마지막 요소에 추가
+		myarr2.push("mongoDB");
+		showArr(data4);
+		
+		
+		</script>
+	</body>
+</html>

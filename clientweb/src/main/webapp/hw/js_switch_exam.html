@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var n = parseInt(prompt("enter number"));
+			if (n > 100 | n < 0) {
+				alert("wrong number");
+			} else {
+				n=Math.floor(n/10);
+				switch(n){
+				case 10,9:
+					n="수"; break;
+				case 8:
+					n="우"; break;
+				case 7:
+					n="미"; break;
+				case 6:
+					n="양"; break;
+				case 5:
+					n="가"; break;
+				
+				}
+			}
+		document.write('<h1>'+n+'</h1>');
+	</script>
+</body>
+</html>

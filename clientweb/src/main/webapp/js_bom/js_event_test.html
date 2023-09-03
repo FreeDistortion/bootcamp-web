@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function calc(){
+		let mytext1	= document.getElementById("num1");
+		let mytext2	= document.getElementById("num2");
+		
+		//result id로 저의된 div 객체
+		let resultdiv = document.getElementById("result");
+		console.log(resultdiv);
+		console.log(mytext1.value);
+		mytext2.value=mytext1.value;
+		resultdiv.innerHTML="result value: "+(mytext1.value+2000);
+	}
+	function calc2(){
+		let numval2	= document.getElementById("num2").value;
+		document.getElementById("result").innerHTML = "<h1>value: "+(numval2*12+1000)+"</h1>";
+	}
+	function display(){
+		document.getElementById("result").innerHTML = "<h1>textBox</h1>";
+	}
+	function changecolor(mytext){
+		console.log(mytext);
+		mytext.setAttribute("style","background-color:yellow");
+	}
+	
+</script>
+</head><body onload="alert('welcome.')">
+	<!-- textbox에서 입력한 내용이 webpage에 출력되도록 작업 -->
+	<div id="result" style="color: red; font-size: bold;"></div>
+	<form>
+		<input type="text" id="num1" onkeyup="calc()" onclick="changecolor(this)"> <input type="text" id="num2" onchange="calc2()" onclick="changecolor(this)">
+		<input type="text" id="num3" onfocus="display()" onclick="changecolor(this)"> <input type="text" id="num4" onclick="changecolor(this)">
+		<input type="button" value="전송1">
+	</form>
+
+	<!-- 마우스 관련 -->
+	<img alt="cat" src="../images/product/KoShortCat2.png" width="300"
+		name="myimg" onmouseover="myimg.src='../images/KoShortCat1.jpeg'"
+		onmouseout="myimg.src='../images/product/KoShortCat2.png'">
+</body>
+</html>

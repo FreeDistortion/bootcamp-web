@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			//js에서 전역변수와 지역variable을 사용할 수 있다.
+			//1.	Function 밖(Script 위에서 변수 선언, var 없이)에서 variable을 선언하는 경우.: Global Variable
+			num1=100;
+			
+			//4.	Function 밖에서 var를 사용하여 variable을 만드는 경우.: Global Variable
+			var num4=400;
+			function test1(){
+			//2.	Function 안(var 없이)에서 variable을 선언하는 경우.: Global Variable
+			//->	반드시 변수가 선언된 function가 먼저 호출되어 실행되어야 한다.
+			//->	test1 내부에서 만들어진 값이 test2에서 사용되는 경우.
+				num2=200;
+			
+			//3.	var keyword를 사용해서 function 내부에서 변수 선언.: Local Variable
+			//->	function 내부에서만 사용할 수 있는 변수
+				var num3=300;
+				document.write("test1에서 num1 사용 -> "+num1+"<br/>");
+				document.write("test1에서 num1 사용 -> "+num2+"<br/>");
+				document.write("test1에서 num3 사용 -> "+num3+"<br/>");
+				document.write("test1에서 num4 사용 -> "+num4+"<br/>");
+			}
+			function test2(){
+				document.write("test2에서 num1 사용 -> "+num1+"<br/>");
+				document.write("test2에서 num2 사용 -> "+num2+"<br/>");
+				/* document.write("test2에서 num3 사용 -> "+num3+"<br/>"); */
+				document.write("test2에서 num4 사용 -> "+num4+"<br/>");
+			}				
+		</script>
+	</head>
+	<body>
+	<script type="text/javascript">
+		test1();
+		document.write("<hr/>");
+		test2();
+		document.write("<hr/>");
+		document.write("body에서 num1 사용 -> "+num1+"<br/>");
+		document.write("body에서 num2 사용 -> "+num2+"<br/>");
+		/* document.write("body에서 num3 사용 -> "+num3+"<br/>"); */
+		document.write("body에서 num4 사용 -> "+num4+"<br/>");
+		</script>
+	</body>
+</html>

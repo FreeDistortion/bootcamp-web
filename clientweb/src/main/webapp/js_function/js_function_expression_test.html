@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//표현식을 이용해서 function을 정의하면 hoisting occr X
+		//myfunc(1000);
+		var myfunc = function test(num) {
+			if (num >= 90) {
+				console.log("pass")
+			} else {
+				console.log("non-pass")
+			}
+		}
+		
+		var myfunc2 = function(num) {
+			if (num >= 90) {
+				console.log("pass")
+			} else {
+				console.log("non-pass")
+			}
+		}
+		
+		//표현식을 이용해서 function을 저으이한 경우 실제 함수명을 사용할 수 없다.
+		//test(1000);
+		myfunc(1000);
+		myfunc2(20);
+		
+		//즉시실행함수
+		(function(){
+		alert("즉시실행함수test");
+		}
+		)();
+		
+		(function(num){
+			alert("즉시실행함수test"+num);
+			}
+			)(200);
+			
+			
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+#rectangle1 {
+	background-color: #a7cece;
+	font-style: italic;
+	background-image: url("../../images/background.gif");
+	background-repeat: no-repeat;
+	margin: 20px;
+	padding: 20px;
+	padding-left: 100px;
+	height: 90px;
+}
+#outer{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+backstar {
+	border-radius: 50%;
+}
+#fword{
+	color: #a7cece;
+}

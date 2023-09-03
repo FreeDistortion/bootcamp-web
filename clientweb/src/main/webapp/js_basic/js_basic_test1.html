@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 4. 외부 문서로 정의하고 연결해서 사용하는 방법 -->
+<script type="text/javascript" src="../common/js/mytest.js"></script>
+<!-- 2. head tag 내부에 정의하고 사용하는 방법 -->
+<script type="text/javascript">
+	console.log("head tag 내부");
+	function test() {
+		alert("Hi there.");
+	}
+</script>
+</head>
+<body>
+	<!-- 1. body tag 내부에서 정의하고 사용하는 방법 -->
+	<script type="text/javascript">
+		document.write("<h1> browswer에 html tag 실행해서 출력하기 - 연습용</h1>");
+		console.log("java의 sysout과 비슷한 역할");
+		test();
+		test2();
+	</script>
+	<!-- 3. inline으로 tag 내부에서 js code를 삽입(event handler에 연결) -->
+	<input type="button" value="js command execution" onclick="alert('Hi there.')">
+	<input type="button" value="js command execution" onclick="test()">
+	<a href="javascript:test()">call js function</a>
+	
+	<input type="button" value="js command execution" onclick="test2()">
+</body>
+</html>

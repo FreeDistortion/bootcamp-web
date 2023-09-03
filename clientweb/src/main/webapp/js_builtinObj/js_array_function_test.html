@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function print(item) {
+		console.log(item);
+	}
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		let subject = [ "java", "oracle", "html", "css", "javascript",
+				"servlet", "jsp", "spring", "thymeleaf", "mybatis", "JPA",
+				"websocket", "MQTT" ];
+		for (var i = 0; i < subject.length; i++) {
+			console.log(subject[i]);
+		}
+		console.log("---------------------1--------------------")
+		//forEach - array의 모든 item 출력
+		subject.forEach(print);
+		console.log("---------------------2--------------------")
+		subject.forEach(function(item) {
+			console.log(item);
+		});
+		console.log("---------------------3--------------------")
+		subject.forEach((item)=> {console.log(item);});
+		
+		//map - 배열의 각 item을 이용해서 새로운 배열을 만들어서 return.
+		console.log("---------------------4--------------------")
+		let data1=subject.map(
+		(item)=>{
+			return item+"-web";
+		});
+		console.log(data1);
+		console.log("---------------------5--------------------")
+		var myfunc=function(item){
+			return item.length>=5;
+		}
+		
+		//다른 함수의 parameter나 DOM의 event handler 사용 방법으로 연결하는 경우, callback으로 functionName만 전달 
+		let data2=subject.map(myfunc);
+		console.log(data2);
+			
+	</script>
+</body>
+</html>

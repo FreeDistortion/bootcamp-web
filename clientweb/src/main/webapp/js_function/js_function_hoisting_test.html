@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js_function_hoisting_test</title>
+	</head>
+	<body>
+		<h1>Hoisting of functions and variables</h1>
+		<script type="text/javascript">
+			//function 선언 전에 호출
+			test(100);
+			function test(num){
+				if(num>=90){
+					console.log("pass")
+				}else{
+					console.log("non-pass")
+				}
+			}
+		</script>
+	</body>
+</html>

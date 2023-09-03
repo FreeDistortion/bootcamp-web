@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//모두체크/해제 checkbox click시 food라는 이름으로 정의된 모든 checkbox가 선택되고, 선택된 상태에서 click시 해제.
+	function allcheck() {
+		alert("allcheck");
+		//1.	allchk의 상태값을 가져오기
+		var allchk=document.getElementById("allchk");
+		var allchkVal=allchk.checked;
+		
+		console.log(allchkVal);
+		//2.	class 속성이 myfood인 객체 모두 가져오기
+		var checkfood=document.getElementsByClassName("myfood");
+		console.log(checkfood);
+		console.log(checkfood.length);
+		
+
+		//3.	allchk의 checked 값을 2.에서 가져온 checkboxes에 설정
+		for (let i = 0; i < checkfood.length; i++) {
+			checkfood[i].checked=allchkVal;
+		}
+	}
+	
+	function newallcheck(){
+		alert("new");
+		var allchk2 = document.querySelector("#allchk");
+		console.log(allchk2);
+		var foodArr = document.querySelectorAll(".myfood");
+		for(let checkbox of foodArr){
+			checkbox.checked = allchk2.checked;
+		}
+	}
+	
+	function ckFunc(){
+		var foodArr=document.querySelectorAll(".myfood");
+		var checkStr="";//check ed checkbox의 문자열을 저장하기 위한 변수
+		for(let checkbox of foodArr){
+			//checkbox의 checked 속성이 true면 변수에 저장
+			if(checkbox.checked){
+				checkStr+=checkbox.value;
+			}
+		}
+		document.getElementById("result").innerHTML=checkStr;
+	}
+	function ckFunc2(){
+		var foodArr=document.querySelectorAll("input[name='food']:checked");
+		var checkStr="";//check ed checkbox의 문자열을 저장하기 위한 변수
+		//foodArr의 forEach이용
+		//(method) NodeListOf.forEach(callbackfn: (value: Element, key: number, parent: NodeListOf) => void, thisArg?: any): void
+		foodArr.forEach(function(foodItem){
+			//if(foodItem.checked){
+				checkStr+=foodItem.value;
+			//}
+		}
+				);
+		document.getElementById("result").innerHTML=checkStr;
+	}
+</script>
+</head>
+<body>
+	<form name="cbfmt">
+		<label>아이스크림</label> <input type="checkbox" name="food" value="아이스크림"
+			id="ice" class="myfood">
+		<label>커피</label> <input
+			type="checkbox" name="food" value="커피" id="coffee" class="myfood">
+		<label>음료수</label> <input type="checkbox" name="food" value="음료수"
+			id="beverage" class="myfood">
+		<label>모두체크/해제</label><input
+			type="checkbox" name="allchk" id="allchk" onclick="newallcheck()"><br>
+
+		<input type="button" value="전송" onclick="ckFunc2()">
+	</form>
+	<div id="result"></div>
+</body>
+</html>

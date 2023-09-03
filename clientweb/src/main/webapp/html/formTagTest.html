@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<form method="post" action="test.jsp">
+			<h2>1. text를 입력받는 양식 tag</h2>
+			ID:<input type="text" size="100" maxlength="10" value="Put ID in here." name="id"/><br/>
+			PW:<input type="password" name="pass"/><br/>
+			Information:<br/>
+			<textarea rows="5" cols="30" name="info"></textarea>
+			
+			<h2>3. 선택관련 양식 tag - checkBox</h2>
+			<fieldset>
+				<legend>좋아하는 과목</legend>
+				<input type="checkbox" name="subject1" value="java">java
+				<input type="checkbox" name="subject1" value="JDBC">JDBC
+				<input type="checkbox" name="subject1" value="servlet" checked="checked">servlet
+				<input type="checkbox" name="subject1" value="JSP">JSP
+				<input type="checkbox" name="subject1" value="spring">spring
+			</fieldset>
+			
+			<!-- 같은 group 안에서 한 개만 선택이 가능(같은 group으로 묶기 위해서 name 속성을 동일하게 작업한다.) -->
+			<h2>3. 선택관련 양식 tag - radioButton</h2>
+			<fieldset>
+				<legend>좋아하는 과목</legend>
+				<input type="radio" name="subject2" value="java">java
+				<input type="radio" name="subject2" value="JDBC">JDBC
+				<input type="radio" name="subject2" value="servlet" checked="checked">servlet
+				<input type="radio" name="subject2" value="JSP">JSP
+				<input type="radio" name="subject2" value="spring">spring
+			</fieldset>
+			
+			<h2>3. 선택관련 양식 tag - comboBox</h2>
+			<select name="subject3">
+				<option value="java">자바</option>
+				<option value="JDBC">JDBC</option>
+				<option value="servlet" selected="selected">servlet</option>
+				<option value="JSP">JSP</option>
+				<option value="spring">spring</option>
+			</select>
+			
+			<h2>3. 선택관련 양식 tag - 목록</h2>
+			<select name="subject4" size="10" multiple="multiple">
+				<option value="java">자바</option>
+				<option value="JDBC">JDBC</option>
+				<option value="servlet" selected="selected">servlet</option>
+				<option value="JSP">JSP</option>
+				<option value="spring">spring</option>
+			</select>
+			
+			<h2>4. 기타 양식 tag</h2>
+			검색:<input type="search"><br/>
+			전화번호:<input type="tel"><br/>
+			수량1:<input type="number"> 수량2:<input type="range"><br/>  
+			날짜:<input type="date">
+			날짜:<input type="week">
+			날짜:<input type="month"><br/>
+			파일업로드:<input type="file"><br/>
+			
+			<!-- hidden tag는 화면에 표시되지 않는다.
+				form tag를 이용해서 사용자의 정보를 넘길 때 사용자에게 직접 입력받지 않고 특정 값을 임의로 넘기는 경우에 주로 사용
+				(보통 session값을 빼서 넘기는 경우 사용)  -->
+			<input type="hidden" name="hidden" value="secureVal">
+						
+			<h2>2. button 관련 양식 tag</h2>
+			<input type="button" value="javascript command 실행 목적으로 사용하는 button" onclick="alert('Welcome!')">
+			<input type="reset" value="data 지우기(취소)">
+			<input type="submit" value="server로 전송하기">
+			
+			<!-- submit button을 누른 것과 동일하게 동작 -->			
+			<input type="image" src="/clientweb/images/KoShortCat1.jpeg" width="100">
+		</form>
+	</body>
+</html>

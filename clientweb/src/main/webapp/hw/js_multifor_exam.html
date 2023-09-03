@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	border: 1px black solid;
+}
+
+td {
+	border: 1px black solid;
+}
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var to = parseInt(prompt("입장갱은 몇 명인가요?"));
+		var row = parseInt(prompt("한 줄에 몇 명씩 앉습니까?"));
+		var col = Math.ceil(to / row);
+		var c = 0;
+		document.write('<table>');
+		for (var i = 1; i <= col; i++) {
+			document.write("<tr>");
+			for (var j = 1; j <= row; j++) {
+
+				document.write("<td>좌석" + (++c) + "</td>");
+				if (c >= to) {
+					break;
+				}
+			}
+			document.write("</tr>");
+		}
+		document.write('</table>');
+	</script>
+</body>
+</html>

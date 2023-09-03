@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.subject span:first-child {
+	color: red;
+}
+
+.subject span:last-child {
+	color: blue;
+}
+
+span { /* inline tag, 글자를 독립적 요소로 정의하기 위해 사용하므로 width 속성을 사용할 수 없다. */
+	width: 500px;
+	background-color: yellow;
+}
+
+.subject *:nth-child(4) {
+	color: red;
+}
+.subject *:nth-child(1) {
+	color: green;
+}
+
+</style>
+</head>
+<body>
+	<div class="subject">
+	<div>test</div>
+		<span>자바</span> <span>JDBC</span>
+		<div>서블릿</div>
+		<p>JSP</p>
+		<h2>스프링</h2>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
