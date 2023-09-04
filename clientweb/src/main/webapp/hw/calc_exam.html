@@ -4,6 +4,21 @@
 <meta charset="UTF-8">
 <title> New Document </title>
 <script type="text/javascript">
+let tempData;
+
+function button_click(data){
+	tempData=document.querySelectorAll("input[value]");
+	//console.log(data);
+	 
+	tempData.forEach((datas)=>{
+	let trimData=datas.getAttribute("value").trim();
+	if(trimData==data)
+	{tempData=trimData}
+	});
+	console.log(tempData);
+	
+}
+
 </script>
 </HEAD>
 

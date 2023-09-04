@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<script type="text/javascript">
-			let lastDayArr=new Array(31,28,31,30,31,30,31,31,30,31,30,31);
-			let yyyy=prompt("Enter year.");
-			let mm=prompt("Enter month.");
-			let myDate=new Date(yyyy,mm,0);
-			let calDate=new Date(yyyy,mm-1,1);
-			let lastDate=myDate.getDate();
-			
-			console.log(calDate);
-			let startDate = console.log(calDate.getDay());
-			
-			document.write("<h3 color='blue'>"+yyyy+"년"+mm+"월"+"</h3>");
-			document.write("<table border=1>");
-			for (var i = 0; i < 7; i++) {
-				document.write("<tr>");
-				for (let i = i; i <= lastDate; i++) {
-					document.write("<td>"+i+"</td>");
-				}
-				document.write("</tr>");
-			}
-			document.write("</table>");
-		</script>
-	</head>
-	<body>
-	<table class="Calendar">
-            <thead>
-                <tr>
-                    <td colspan="7">
-                        <span id="calYear"></span>년
-                        <span id="calMonth"></span>월
-                    </td>
-                </tr>
-                <tr>
-                    <td>일</td>
-                    <td>월</td>
-                    <td>화</td>
-                    <td>수</td>
-                    <td>목</td>
-                    <td>금</td>
-                    <td>토</td>
-                </tr>
-            </thead>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let lastDayArr = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30,
+				31);
+		/*
+		let yyyy=prompt("Enter year.");
+		let mm=prompt("Enter month.");
+		 */
+		 let yyyy=2023;
+		let mm=09;
+		
+		
+		let myDate=new Date(yyyy,mm,0);
+		let calDate=new Date(yyyy,mm-1,1);
+	
+		let today = new Date();
 
-            <tbody>
-            </tbody>
-        </table>
-	</body>
+		let lastDate = myDate.getDate();
+		let startDate = calDate.getDay();
+
+
+		let week = Math.ceil((startDate + lastDate) / 7);
+
+		let temp = 0;
+		let date = 0;
+		let todayDate = today.getDate() - 1;
+
+		//document.write("<h3 color='blue'>" + yyyy + "년" + mm + "월" + "</h3>");
+		document
+				.write('<table border=1>		<thead>			<tr>				<td colspan="7" bgcolor="blue"><span ></span>'+yyyy+'년 <span id="calMonth"></span>'+mm+'월				</td>			</tr>			<tr bgcolor="pink">				<td>일</td>				<td>월</td>				<td>화</td>				<td>수</td>				<td>목</td>				<td>금</td>				<td>토</td>			</tr>		</thead>		<tbody>');
+		for (var i = 0; i < week; i++) {
+			document.write("<tr>");
+			for (let i = 0; i < 7; i++) {
+				if (temp < startDate) {
+					document.write("<td>");
+					temp++;
+				} else {
+					if (date == todayDate) {
+						document.write("<td bgcolor='red'>" + (++date)
+								+ "</td>")
+					} else {
+						document.write("<td bgcolor='yellow'>" + (++date)
+								+ "</td>")
+					}
+					;
+				}
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	</script>
+	</tbody>
+	</table>
+</body>
 </html>

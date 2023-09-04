@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="layer"></div>
+
+	<hr>
+
+	<div id="root">
+		<p style="background: gray;">line01</p>
+		<p style="background: skyblue">line02</p>
+		<p style="background: green;">line03</p>
+		<p style="background: red;">line04</p>
+	</div>
+
+	<hr>
+	<button onclick="insertP()">P태그추가하기</button>
+	<button onclick="deleteP()">P태그삭제하기</button>
+	<button onclick="deleteDivAndP()">div안의 모든 p태그 삭제하기</button>
+	<button onclick="innerHTML_test()">innerHTML</button>
+
+
+	<script type="text/javascript">
+		let pTagsParentNode = document.querySelector("#root");
+
+		function insertP() {
+		const newPTag = document.createElement("p");
+		newPTag.setAttribute("style", "background: yellow;");
+		newPTag.textContent="newP";
+		/* const newPTagTextNode = document.createTextNode("newP"); */
+		/* newPTag.appendChild(newPTagTextNode) */
+		pTagsParentNode.appendChild(newPTag);
+
+		}
+		
+		function deleteP(){
+			const delNode=pTagsParentNode.lastElementChild;
+			pTagsParentNode.removeChild(delNode);
+		}
+		
+		function deleteDivAndP(){
+			/* 
+			while(pTagsParentNode.lastElementChild!=null)
+			pTagsParentNode.lastElementChild.remove();
+			 */
+			 pTagsParentNode.querySelectorAll('p').forEach(ele=>{ele.remove();});
+		}
+	</script>
+</body>
+</html>

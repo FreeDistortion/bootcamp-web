@@ -4,68 +4,97 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
+	function checkAllCheckBoxes() {
+		let setAll = document.querySelector("#allchk");
+		let checkBoxArr = document.querySelectorAll(".cbox");
+		checkBoxArr.forEach(function(checkBox) {
+			checkBox.checked = setAll.checked;
+		});
 
-function checkAllCheckBoxes(){
-	let setAll=document.querySelector("#allchk");
-	let checkBoxArr=document.querySelectorAll(".cbox");
-	checkBoxArr.forEach(function(checkBox){
-		checkBox.checked=setAll.checked;
-	});
-	
-}
-
-
-function Cal(){
-	let checkBoxArr=document.querySelectorAll("input[class='cbox']:checked")
-	let productPrice=document.querySelectorAll("input[name='price']");
-	let productCount=document.querySelectorAll("input[name='count']");
-	let price;
-	//=document.querySelectorAll(".calcprice");
-	let totalprice=document.querySelectorAll("#totalprice");
-	
-	
-	console.log(checkBoxArr);
-	console.log(productPrice);
-	console.log(productCount);
-	console.log(price);
-	console.log(totalprice);
-	
-	checkBoxArr.forEach(function(){
-		price=productPricevalue*productCount[checkBoxArr].value;
-		totalprice.value+=productPrice[checkBoxArr].value*productCount[checkBoxArr].value;
-	});
-	console.log(price);
-	console.log(totalprice);
-
-	document.getElementsByClassName("calcprice").value=price;
-	document.getElementById("totalprice").innerHTML=totalprice;
+	}
+	let totalSum=0;
+	function Cal() {
+		/* 
+		let checkBoxArr=document.querySelectorAll("input[class='cbox']:checked")
+		let productPrice=document.querySelectorAll("input[name='price']");
+		let productCount=document.querySelectorAll("input[name='count']");
+		let price;
+		//=document.querySelectorAll(".calcprice");
+		let totalprice=document.querySelectorAll("#totalprice");
 		
-}
+		
+		console.log(checkBoxArr);
+		console.log(productPrice);
+		console.log(productCount);
+		console.log(price);
+		console.log(totalprice);
+		
+		checkBoxArr.forEach(function(){
+			price=productPricevalue*productCount[checkBoxArr].value;
+			totalprice.value+=productPrice[checkBoxArr].value*productCount[checkBoxArr].value;
+		});
+		console.log(price);
+		console.log(totalprice);
+
+		document.getElementsByClassName("calcprice").value=price;
+		document.getElementById("totalprice").innerHTML=totalprice;
+		 */
+		let selectedCheckBoxArr = document
+				.querySelectorAll("input[class='cbox']:checked");
+		//console.log(selectedCheckBoxArr);
+
+		selectedCheckBoxArr.forEach(function(selectedCheckBox) {
+			let pnode = selectedCheckBox.parentNode.parentNode;
+			//console.log(pnode);
+
+			let count = pnode.querySelector("#count");
+			//console.log(count);
+			let price = pnode.querySelector("#price");
+
+			let totalPrice = pnode.lastElementChild;
+			totalPrice = count.value * price.value;
+			console.log(totalPrice);
+			pnode.querySelector(".calcprice").innerHTML = totalPrice;
+			//let totalSum;
+			totalSum+=totalPrice;
+			console.log(totalSum);
+			
+			document.querySelector("#totalprice").innerHTML=totalSum;
+		});
+
+		/* 
+		 let productCount=document.querySelector("input[name='count']");
+		 let productPrice=document.querySelector("input[name='price']");
+		 console.log(productCount);
+		 console.log(productPrice);
+		 */
+	}
 </script>
 </head>
 <body>
 	<form name="myform">
 		<table border="1" width="800" onchange="Cal()">
 			<tr>
-				<td><input type="checkbox" name="allchk" id="allchk" onclick="checkAllCheckBoxes()" />항목명</td>
+				<td><input type="checkbox" name="allchk" id="allchk"
+					onclick="checkAllCheckBoxes()" />항목명</td>
 				<td>상품정보</td>
 				<td>수량</td>
 				<td>판매가</td>
 				<td>구매예정가</td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="prd" class="cbox"/>완도미역</td>
-				<td><img src="../images/pro1.jpg"/></td>
-				<td><input type="number" name="count" value="1" /></td>
-				<td>
-				<input type="text" name="price" value="6900"/><span>원</span></td>
+				<td><input type="checkbox" name="prd" class="cbox" />완도미역</td>
+				<td><img src="../images/pro1.jpg" /></td>
+				<td><input type="number" name="count" id="count" value="1" /></td>
+				<td><input type="text" name="price" id="price" value="6900" /><span>원</span></td>
 				<td><span class="calcprice"></span><span>원</span></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="prd" class="cbox"/>스카트 빨아쓰는 휴지</td>
-				<td><img src="../images/pro2.jpg"/></td>
-				<td><input type="number" name="count" value="1" /></td>
-				<td><input type="text" name="price" value="7800"/><span>원</span></td>
+				<td><input type="checkbox" name="prd" class="cbox" />스카트 빨아쓰는
+					휴지</td>
+				<td><img src="../images/pro2.jpg" /></td>
+				<td><input type="number" name="count" id="count" value="1" /></td>
+				<td><input type="text" name="price" id="price" value="7800" /><span>원</span></td>
 				<td><span class="calcprice"></span><span>원</span></td>
 			</tr>
 			<tr>
