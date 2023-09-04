@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<p id="test">jQuery 값 설정</p>
+		<p></p>
+		<div id="result"></div>
+		<div id="result2"></div>
+		
+		<form>
+			<input type="number" id="data1">
+			<input type="number" id="data2">
+			<input type="button" id="btn" value="getter">
+			
+		</form>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//text method는 setter role.
+				$("#result").text("<h1>h1에 값 설정 - text()는 html tag가 실행되지 않는다.</h1>");
+				
+				$("#result2").html("<h1>h1에 값 설정 - html()는 html tag가 실행된다.</h1>");
+				
+				$("#test").css({"color":"blue","border":"solid 1px red"});
+				
+				$("#data1").on("keyup",function(){
+					//data1에 입력한 값을 읽어서 result에 출력하는 작업
+					//getter
+					var myval =parseInt( $("#data1").val())+10000;
+					
+					//setter
+					$("#result").text(myval);
+				});
+				
+				$("#btn").on("click",function(){
+					//getter
+					var textVal = $("#result").text();
+					
+					//setter
+					$("#data2").val(textVal);
+				});
+				
+			});
+		</script>
+	</body>
+</html>

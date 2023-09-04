@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*
+ 1번 부터 4번 버튼을 누르면 메시지가 출력될 수 있도록 이벤트 연결
+ 1. 메시지는 임의
+ 2. ehandler dom이벤트 연결 방식으로 연결
+ 3. 4번 버튼은 함수를 정의해서 연결(함수명: mycallback)
+ 4. 1, 2번 버튼은 querySelector, 3, 4번 버튼은 getElementById 
+ 
+*/
+window.onload=function(){
+	document.querySelector("#btnQuery1").onclick=
+		()=>alert("Button was clicked by querySelector.");
+	
+		document.querySelector("#btnQuery2").onclick=
+			()=>alert("Button was clicked by querySelector.");
+			
+		
+	document.getElementById("btnEle").onclick=
+		()=>alert("Button was clicked by ElementId.");
+	
+	document.getElementById("btnELeFunc").onclick=	mycallback;
+				
+	
+}
+
+function mycallback(){
+	alert("Button was clicked by function.");
+	/*
+		1. id가 myform인 객체 구하기
+		2. myform 객체의 child node 구하기
+		3. 2.에서 수한 모든 child node 탐색(for, foreach 마음대로)
+		4. 3.에서 child node를 탐색하면서 nodename, id 속성 console로 출력
+	*/
+	
+	
+	
+	/*
+	
+	//1.
+	let myform=document.querySelectorAll("#myform");
+	
+		
+	//2.
+
+	
+	
+	myform.forEach((children)=>{
+	//3.
+		console.log(children);
+		console.log(children.childNodes);
+	
+	//4.
+		console.log("nodeName: "+children.nodeName);
+		console.log("id: "+children.getAttribute("id"));
+		
+		console.log(children.childNodes.nodeName);
+		//console.log("id: "+children.childNodes.getAttribute("id"));
+
+	});
+	
+	
+	*/
+	
+	
+	//1.
+	//let myobj=document.getElementById("myform");
+	let myobj=document.querySelector("#myform");
+	
+	//2.
+	//공백 node를 제외한 것들만 선택
+	var childNodeList=myobj.children;
+
+	//3.
+	for (var i = 0; i < childNodeList.length; i++) {
+	//4.
+		console.log(childNodeList[i].nodeName+":"+childNodeList[i].getAttribute("id"));
+	}
+}
+
+
+</script>
+</head>
+<body>
+	<form id="myform">
+		<input type="button" value="1번버튼" id="btnQuery1" /> 
+		<input type="button" value="2번버튼" id="btnQuery2" /> 
+		<input type="button" value="3번버튼" id="btnEle" /> 
+		<input type="button" value="4번버튼" id="btnELeFunc" />
+	</form>
+</body>
+</html>
