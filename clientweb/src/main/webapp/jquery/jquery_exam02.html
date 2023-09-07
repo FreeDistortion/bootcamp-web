@@ -6,7 +6,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script type="text/javascript">
 	
-	
 	$(document).ready(function(){
 		$("#insertP").click(function(){
 			let d=$('<p style="background: yellow;">pTag</p>');
@@ -19,6 +18,10 @@
 		
 		$("#deleteDivAndP").click(function(){
 			$("#root").empty();
+		});
+		
+		$("#filterdel").click(function(){
+			$("#root p:first").remove();
 		});
 	});
 	</script>
@@ -39,7 +42,7 @@
 	<button id="insertP">P태그추가하기</button>
 	<button id="deleteP">P태그삭제하기</button>
 	<button id="deleteDivAndP">div안의 모든 p태그 삭제하기</button>
-	<button onclick="innerHTML_test()">innerHTML</button>
+	<button id="filterdel">선택자 적용하기</button>
 
 
 </body>
