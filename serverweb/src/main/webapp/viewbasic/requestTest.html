@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h2>Servlet 요청 방법</h2>
+		<h2>1. get방식 요청</h2>
+		<h3>1) Hyperlink로 요청</h3>
+		<a href="/serverweb/requesttest.do">Servlet요청-requesttest.do</a>
+		<a href="/serverweb/gugudan.html">Servlet요청-gugudan.html</a>
+		<h3>2) submit button 요청 - form tag의 method property를 get으로 정의</h3>
+		<form method="get" action="/serverweb/requesttest.do">
+			ID:<input type="text" name="id"/><br/>
+			PW:<input type="password" name="pass"/><br/>
+			<input type="submit" value="login"/>
+		</form>
+		<br/><br/>
+		
+		<h3>3) submit button 요청 - form tag의 method property를 생략하는 경우</h3>
+		<form action="/serverweb/requesttest.do">
+			ID:<input type="text" name="id"/><br/>
+			PW:<input type="password" name="pass"/><br/>
+			<input type="submit" value="login"/>
+		</form>
+		<br/><br/>
+		
+		
+		<h2>2. post방식 요청</h2>
+		<h3>1) submit button 요청 - form tag의 method property를 post로 정의</h3>
+		<form method="post" action="/serverweb/requesttest.do">
+			ID:<input type="text" name="id"/><br/>
+			PW:<input type="password" name="pass"/><br/>
+			<input type="submit" value="login"/>
+		</form>
+		<br/><br/>
+		
+		<h3>2) post 방식으로 /life.html 요청하기</h3>
+		<form method="post" action="/serverweb/life.html">
+			ID:<input type="text" name="id"/><br/>
+			PW:<input type="password" name="pass"/><br/>
+			<input type="submit" value="login"/>
+		</form>
+		<br/><br/>
+		
+		
+		<h2>3. Javascript로 요청</h2>
+		<h3>1) submit button 요청 - form tag의 method property를 post로 정의</h3>
+		<input type="button" value="JS로 servlet request" onclick="location.href='/serverweb/requesttest.do'">/>
+		<br/><br/>
+		
+		
+		
+	</body>
+</html>
