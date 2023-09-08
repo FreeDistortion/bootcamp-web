@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title> New Document </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script type="text/javascript">
-let tempData;
 
+/* 
+let tempData;
 function button_click(data){
 	tempData=document.querySelectorAll("input[value]");
 	//console.log(data);
@@ -16,8 +18,26 @@ function button_click(data){
 	{tempData=trimData}
 	});
 	console.log(tempData);
-	
 }
+ */
+/*  
+ $(document).ready(function(){
+	$("")
+	
+ });
+  */
+ function button_click(data){
+	  myform.mytext.value+=data;
+  }
+  
+  function compute(){
+	  let result = eval(myform.mytext.value);
+	  myform.mytext.value=result;
+  }
+  
+  function clear_del(){
+	  myform.mytext.value=null;
+  }
 
 </script>
 </HEAD>
