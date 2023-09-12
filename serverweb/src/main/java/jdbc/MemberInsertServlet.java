@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import basic.MemberDTO;
+
 /**
  * Servlet implementation class MemberInsertServlet
  */
@@ -33,6 +35,7 @@ public class MemberInsertServlet extends HttpServlet {
 
 		// call business logic
 		MemberDAO dao = new MemberDAO();
+		MemberDTO member=new MemberDTO(id, pass, name, addr, info);
 		int result = dao.insert(id, pass, name, addr, info);
 
 		//결과 화면 생성

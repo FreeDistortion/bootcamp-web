@@ -1,3 +1,5 @@
+package basic;
+
 
 // 파일명 : HeaderInfoServlet.java
 import java.io.IOException;

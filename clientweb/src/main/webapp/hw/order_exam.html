@@ -4,42 +4,71 @@
 <head>
 <meta charset="UTF-8" />
 <title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		let test=$("#orderform .field");
-		
-		$("#name").change(function(){
-			let roomName=$("#name").val();
-			
-			switch(roomName){
+	$(document).ready(function() {
+		let test = $("#orderform .field");
+
+		$("#name").change(function() {
+			let roomName = $("#name").val();
+
+			switch (roomName) {
 			case "루비":
-				$(".img").children().attr("src","../images/ruby1.jpg");break;
+				$(".img").children().attr("src", "../images/ruby1.jpg");
+				break;
 			case "에메랄드":
-				$(".img").children().attr("src","../images/emerald1.jpg");break;
+				$(".img").children().attr("src", "../images/emerald1.jpg");
+				break;
 			case "사파이어":
-				$(".img").children().attr("src","../images/sapphire1.jpg");break;
+				$(".img").children().attr("src", "../images/sapphire1.jpg");
+				break;
 			case "스카이1호":
-				$(".img").children().attr("src","../images/sky01.jpg");break;
+				$(".img").children().attr("src", "../images/sky01.jpg");
+				break;
 			case "별님실":
-				$(".img").children().attr("src","../images/star1.jpg");break;
+				$(".img").children().attr("src", "../images/star1.jpg");
+				break;
 			}
 		});
-		
-		
-		
-		
+
 	});
+
+	function order() {
+		let price = 100000;
+		let bbqmen = $("#bbq").val();
+		let blanketmen = $("#blanket").val();
+		let men = $("#count").val();
+		let tax = $("#tax").val();
+		price = 100000 + bbqmen * 10000 + (men - 2) * 20000 + blanketmen
+				* 10000;
+		tax = price / 10;
+		let str1=String(price);
+		console.log(str1);
+		document.orderform.subtotal.value=price;
+		document.orderform.tax.value= tax;
+		document.orderform.total.value= price+tax;
+	}
+
+	function exec(orderform) {
+		document.getElementById("tot").innerHTML = "객실 : " + $("#name").val()
+				+ "<br>" + "바베큐 : " + $("#bbq").val() + "<br>" + "이불 수 : " + $("#blanket").val()
+				+ "<br>" + "인원 수 : " + $("#count").val() + "<br>" + "금액 : " + $("#subtotal").val() + "<br>"
+				+ "세금 : " + $("#tax").val() + "<br>" + "총액 : " + $("#total").val() + "<br>";
+
+	}
 </script>
 <style type="text/css">
 body {
 	font: 14px 굴림체;
 	text-align: center;
 }
+
 .main {
-  margin-top:15px;
-  width:700px;
+	margin-top: 15px;
+	width: 700px;
 }
+
 div.heading {
 	font: 20px HY견고딕;
 	font-weight: bold;
@@ -55,17 +84,15 @@ div.subheading {
 .img {
 	float: left;
 	width: 350px;
-	
 }
 
 div.field {
-  
-  margin-bottom:5px;
-  text-align:right;
+	margin-bottom: 5px;
+	text-align: right;
 }
-form{
-padding-left:0px;
-	
+
+form {
+	padding-left: 0px;
 }
 </style>
 
@@ -89,8 +116,7 @@ padding-left:0px;
 				</select>
 			</div>
 			<div class="field">
-				바베큐시설이용: 
-				<input type="text" id="bbq" name="bbq" value=""
+				바베큐시설이용: <input type="text" id="bbq" name="bbq" value=""
 					onchange="order()" />
 			</div>
 			<div class="field">
@@ -99,7 +125,7 @@ padding-left:0px;
 			</div>
 			<div class="field">
 				인원수: <input type="text" id="count" name="count" value=""
-					 onchange="order()"/>
+					onchange="order()" />
 			</div>
 			<div class="field">
 				금액: <input type="text" id="subtotal" name="subtotal" value=""
@@ -114,11 +140,10 @@ padding-left:0px;
 					readonly="readonly" />
 			</div>
 			<div class="field">
-				<input type="button" value="Place Order" 
-						onclick="exec(this.form)"/>
+				<input type="button" value="Place Order" onclick="exec(this.form)" />
 			</div>
-	
-	</form>
+			<div id="tot"></div>
+		</form>
 	</div>
 </body>
 </html>
