@@ -3,7 +3,9 @@ package deptjdbc;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequestAttributeEvent;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +40,6 @@ public class DeptInsertServlet extends HttpServlet {
 		int r=dao.insert(deptno, deptname, tel, addr);
 		
 		pw.print("<h1>Registration completed.</h1>\n"+r+" datas were inserted.");
-		
 		
 	}
 

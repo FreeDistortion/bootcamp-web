@@ -10,7 +10,45 @@ import java.util.ArrayList;
 import basic.MemberDTO;
 
 public class MemberDAO {
+	//091223hw
+	public ArrayList<MemberDTO> search(String key) {
+		//like command
+		StringBuffer sqlCommand = new StringBuffer();
+		sqlCommand.append("SELECT * FROM MEMBER ");
+		sqlCommand.append("WHERE ADDR LIKE ?");
+		Connection con = null;
+		PreparedStatement preparedStmt = null;
+		ResultSet rs = null;
+		ArrayList<MemberDTO> memberList = new ArrayList<MemberDTO>();
+		MemberDTO member = null;
 
+		try {
+			con = DBUtil.getConnect();
+			preparedStmt = con.prepareStatement(sqlCommand.toString());
+			preparedStmt.setString(1,"%"+key+"%");
+
+			rs = preparedStmt.executeQuery();
+
+			while (rs.next()) {
+				// ResultSet의 record를 Java Object(DTO)로 변환
+				member = new MemberDTO(rs.getString("id"), rs.getString("pass"), rs.getString("name"),
+						rs.getString("addr"), rs.getDate("regdate"), rs.getInt("point"), rs.getString("info"));
+				
+				// 변환된 DTO를 ArrayList에 저장
+				memberList.add(member);
+			}
+			System.out.println("조회된 record 개수: "+memberList.size());
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(null, preparedStmt, con);
+		}
+		return memberList;
+		
+	}
+	
 	public ArrayList<MemberDTO> getMemberList() {
 		System.out.println("DAO request completed.");
 		StringBuffer sqlCommand = new StringBuffer();

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import basic.MemberDTO;
+
 /**
  * Servlet implementation class SendRedirectTestServlet
  */
@@ -24,8 +26,16 @@ public class SendRedirectTestServlet extends HttpServlet {
 		System.out.println("sendRedirect practice - SendRedirectTestServlet execution.");
 		pw.println("<h1>요청재지정연습 - sendRedirect</h1>");
 		
+		
+		//data 공유 - DB에서 가져온 결과 또는 business logic 수행 결과를 공유.
+		MemberDTO dto=new MemberDTO("bts", "1234", "one", "seoul", "lol");
+		
+		//공유하고 싶은 scope를 나타내는 object에 이름과 공유할 object 지정.
+		request.setAttribute("mydata", dto);
+		
 		//요청재지정
-		response.sendRedirect("/viewbasic/result.html");
+		response.sendRedirect("/serverweb/member_mvc/result.jsp");
+		
 	}
 
 }
