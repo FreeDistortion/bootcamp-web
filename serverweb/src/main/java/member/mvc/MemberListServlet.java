@@ -43,7 +43,7 @@ public class MemberListServlet extends HttpServlet {
 		ArrayList<MemberDTO> memberList = dao.getMemberList();
 		
 		request.setAttribute("list", memberList);
-		RequestDispatcher rd = request.getRequestDispatcher("/member_mvc/listResult.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/member_mvc/list.jsp");
 		rd.forward(request, response);
 		
 //		

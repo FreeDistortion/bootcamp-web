@@ -10,7 +10,15 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container-fluid">
+	<jsp:include page="../top.jsp"/>
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-2 sidenav">
+				<jsp:include page="/layout/servlet_menu.jsp"/>
+			</div>
+			<div class="col-lg-	10">
+				
+
 			<a href="/serverweb/mvc/member/list.do"><h1>회원목록보기</h1></a>
 			<form role="form" class="form-horizontal"
 				action="/serverweb/mvc/member/insert.do" method="post" 
@@ -78,6 +86,9 @@
 					</div>
 				</fieldset>
 			</form>
+			</div>
+		</div>
 	</div>
+	
 </body>
 </html>

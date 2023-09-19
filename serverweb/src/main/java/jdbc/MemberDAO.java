@@ -49,6 +49,7 @@ public class MemberDAO {
 		
 	}
 	
+	//getList
 	public ArrayList<MemberDTO> getMemberList() {
 		System.out.println("DAO request completed.");
 		StringBuffer sqlCommand = new StringBuffer();
@@ -88,6 +89,35 @@ public class MemberDAO {
 
 	}
 
+	// login(jsp)
+	public MemberDTO loginD(String id, String pass) {
+		StringBuffer sqlCommand = new StringBuffer();
+		sqlCommand.append("SELECT * FROM MEMBER ");
+		sqlCommand.append("WHERE ID=? AND PASS=?");
+		Connection con = null;
+		PreparedStatement preparedStmt = null;
+		ResultSet rs = null;
+		MemberDTO member=null;
+		try {
+			con = DBUtil.getConnect();
+			preparedStmt = con.prepareStatement(sqlCommand.toString());
+			preparedStmt.setString(1, id);
+			preparedStmt.setString(2, pass);
+			rs = preparedStmt.executeQuery();
+			if(rs.next()) {
+				member = new MemberDTO(rs.getString("id"), rs.getString("pass"), rs.getString("name"),
+						rs.getString("addr"), rs.getDate("regdate"), rs.getInt("point"), rs.getString("info"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(rs, preparedStmt, con);
+		}
+		return member;
+	}
+
+	
 	// login
 	public void login(String id, String pass) {
 		StringBuffer sqlCommand = new StringBuffer();

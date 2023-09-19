@@ -9,11 +9,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="search.jsp"></jsp:include>
+	<jsp:include page="search.jsp"></jsp:include>
+	
+	
 	<%
 	ArrayList<MemberDTO> memberList = (ArrayList<MemberDTO>) request.getAttribute("list");
 	%>
-	<table border='1' width='600'>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-2 sidenav">
+			</div>
+			<div class="col-lg-	10">
+			<table border='1' width='600'>
 		<tr>
 			<th>id</th>
 			<th>pw</th>
@@ -24,6 +32,7 @@
 			<th>info</th>
 			<th>delete</th>
 		</tr>
+		
 		<%
 		for (MemberDTO member : memberList) {
 		%>
@@ -40,6 +49,13 @@
 		<%
 		}
 		%>
+		
+		 
 	</table>
+			</div>
+		</div>
+	</div>
+	
+	
 </body>
 </html>
